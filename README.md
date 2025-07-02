@@ -26,8 +26,8 @@ Server will run on http://localhost:8000 by default.
 
 ## 📤 Upload API
 
-POST /api/upload
-Form field: file (type: multipart/form-data)
+`POST /api/upload`
+- Form field: file (type: multipart/form-data)
 
 ## ✅ Example curl:
 ```bash
