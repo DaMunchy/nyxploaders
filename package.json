@@ -1,14 +1,14 @@
 {
-  "name": "upload-server",
+  "name": "Nyxserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "pls fork",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Munchy",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
