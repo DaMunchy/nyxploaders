@@ -18,9 +18,9 @@ git clone https://github.com/yourusername/nyx-uploader.git
 cd nyx-uploader
 npm install
 node index.js
-
-Server will run on http://localhost:8000 by default.
 ```
+Server will run on http://localhost:8000 by default.
+
 
 
 
@@ -41,7 +41,7 @@ curl -F "file=@yourfile.png" http://localhost:8000/api/upload
 ```
 
 ## 🌐 Example Web Usage (HTML + JS)
-
+```javascript
 <form id="uploadForm">
   <input type="file" name="file" />
   <button type="submit">Upload</button>
@@ -62,46 +62,4 @@ document.getElementById('uploadForm').onsubmit = async (e) => {
   console.log('File URL:', data.url);
 };
 </script>
-
-## 🤖 Example Bot Usage
-
-const axios = require('axios');
-const fs = require('fs');
-
-async function uploadAndSend(sock, jid, path) {
-  const form = new FormData();
-  form.append('file', fs.createReadStream(path));
-
-  const res = await axios.post('http://localhost:8000/api/upload', form, {
-    headers: form.getHeaders()
-  });
-
-  const fileUrl = res.data.url;
-
-  await sock.sendMessage(jid, {
-    text: `File uploaded: ${fileUrl}`
-  });
-}
-
-> Replace http://localhost:8000 with your hosted server if deployed (e.g. Railway)
-
-
-
-
----
-
-🌍 Deploy
-
-You can deploy to Railway, Render, or any VPS. Just make sure to allow public access to /uploads.
-
-
----
-
-📝 License
-
-MIT
-
----
-
-Kalau lo mau, gw bisa bantu buatin file `README.md` beneran dan kasih teks siap di-copy atau langsung auto-push ke GitHub repo lo. Mau lanjut ke situ?
-
+```
