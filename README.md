@@ -30,9 +30,9 @@ POST /api/upload
 Form field: file (type: multipart/form-data)
 
 ## ✅ Example curl:
-
+```bash
 curl -F "file=@yourfile.png" http://localhost:8000/api/upload
-
+```
 ## ✅ Example response:
 ```bash
 {
