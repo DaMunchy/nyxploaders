@@ -14,7 +14,7 @@ const upload = multer({
   storage: multer.diskStorage({
     destination: 'uploads/',
     filename: (_, file, cb) =>
-      cb(null, `${randomBytes(8).toString('hex')}${path.extname(file.originalname)}`)
+      cb(null, `${Math.random().toString(36).substring(2, 8)}${path.extname(file.originalname)}`)
   })
 });
 
