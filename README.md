@@ -14,10 +14,10 @@ A simple file upload server built with Express and Multer. Useful for uploading 
 ## 🛠 Installation
 
 ```bash
-git clone https://github.com/yourusername/nyx-uploader.git
-cd nyx-uploader
+git clone https://github.com/DaMunchy/nyxploaders.git
+cd nyxploaders
 npm install
-node index.js
+node index.js / npm start
 ```
 Server will run on http://localhost:8000 by default.
 
