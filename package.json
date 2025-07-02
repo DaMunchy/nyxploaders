@@ -1,7 +1,7 @@
 {
   "name": "Nyxserver",
   "version": "1.0.0",
-  "description": "pls fork",
+  "description": "ah",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
