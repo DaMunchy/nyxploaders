@@ -14,9 +14,15 @@ const upload = multer({
   storage: multer.diskStorage({
     destination: 'uploads/',
     filename: (_, file, cb) =>
+      // Generate random filename to avoid collisions
+      // This also strips original file name from the URL
+      // Final URL will look like: /uploads/abc123.png instead of /uploads/original-name.png
+      // If you want to keep original names, replace this with:
+      // cb(null, file.originalname)
       cb(null, `${Math.random().toString(36).substring(2, 8)}${path.extname(file.originalname)}`)
   })
 });
+
 
 app.post('/api/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
