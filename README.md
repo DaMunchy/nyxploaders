@@ -4,7 +4,7 @@ A simple file upload server built with Express and Multer. Useful for uploading 
 
 ## 🚀 Features
 
-### Upload single file via POST `/api/upload`
+- Upload single file via POST `/api/upload`
 - Automatically saves file to `/uploads/` folder
 - Returns a public URL to access the uploaded file
 - CORS enabled
