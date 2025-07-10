@@ -25,6 +25,9 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
   res.json({ url: `https://${req.get('host')}/uploads/${req.file.filename}` });
 });
+app.get('/', (req, res) => {
+  res.send('NyxUploader Server is Live 🔥');
+});
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Uploader running on http://0.0.0.0:${PORT}`);
