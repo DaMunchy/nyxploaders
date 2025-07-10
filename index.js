@@ -5,7 +5,7 @@ const path = require('path');
 const { randomBytes } = require('crypto');
 
 const app = express();
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || "8080"
 
 app.use(cors());
 app.use('/uploads', express.static('uploads'));
