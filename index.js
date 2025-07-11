@@ -7,15 +7,12 @@ const fs = require('fs');
 const app = express();
 const PORT = parseInt(process.env.PORT) || 8080;
 
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
-
 app.use(cors());
-app.use('/', express.static('uploads'));
+app.use(express.static(__dirname)); // Serve root folder as public
 
 const upload = multer({
   storage: multer.diskStorage({
-    destination: './',
+    destination: (_, __, cb) => cb(null, __dirname),
     filename: (_, file, cb) =>
       cb(null, `${Math.random().toString(36).substring(2, 8)}${path.extname(file.originalname)}`)
   })
@@ -23,10 +20,13 @@ const upload = multer({
 
 app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
-  res.json({ url: `https://${req.get('host')}/uploads/${req.file.filename}` });
+  res.json({
+    url: `https://${req.get('host')}/${req.file.filename}`
+  });
 });
+
 app.get('/', (req, res) => {
-  res.send('NyxUploader Server is Live 🔥');
+  res.send('Nothing here');
 });
 
 app.listen(PORT, '0.0.0.0', () => {
