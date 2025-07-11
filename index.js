@@ -11,11 +11,11 @@ const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
 app.use(cors());
-app.use('/uploads', express.static('uploads'));
+app.use('/', express.static('uploads'));
 
 const upload = multer({
   storage: multer.diskStorage({
-    destination: 'uploads/',
+    destination: './',
     filename: (_, file, cb) =>
       cb(null, `${Math.random().toString(36).substring(2, 8)}${path.extname(file.originalname)}`)
   })
