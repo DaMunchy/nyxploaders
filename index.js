@@ -21,7 +21,7 @@ const upload = multer({
 app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
   res.json({
-    url: `https://${req.get('host')}/${req.file.filename}`
+    url: `http://${req.get('host')}/${req.file.filename}`
   });
 });
 
@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
   res.send('Nothing here');
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Uploader running on http://0.0.0.0:${PORT}`);
+app.listen(PORT, 'localhost', () => {
+  console.log(`Uploader running on http://localhost:${PORT}`);
 });
+
