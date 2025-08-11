@@ -5,7 +5,7 @@ A simple file upload server built with Express and Multer. Useful for uploading 
 ## 🚀 Features
 
 - Upload single file via POST `/api/upload`
-- Automatically saves file to `/uploads/` folder
+- Automatically saves file to root folder
 - Returns a public URL to access the uploaded file
 - CORS enabled
 
@@ -19,7 +19,7 @@ cd nyxploaders
 npm install
 node index.js / npm start
 ```
-Server will run on http://localhost:8000 by default.
+Server will run on http://localhost:8080 by default.
 
 
 
@@ -31,12 +31,12 @@ Server will run on http://localhost:8000 by default.
 
 ## ✅ Example curl:
 ```bash
-curl -F "file=@yourfile.png" http://localhost:8000/api/upload
+curl -F "file=@yourfile.png" http://localhost:8080/api/upload
 ```
 ## ✅ Example response:
 ```bash
 {
-  "url": "http://localhost:8000/uploads/abc123.png"
+  "url": "http://localhost:8080/uploads/abc123.png"
 }
 ```
 
@@ -54,7 +54,7 @@ document.getElementById('uploadForm').onsubmit = async (e) => {
   const formData = new FormData();
   formData.append('file', file);
 
-  const res = await fetch('http://localhost:8000/api/upload', {
+  const res = await fetch('http://localhost:8080/api/upload', {
     method: 'POST',
     body: formData
   });
